@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Componente1 from "./Componente1";
+import products from "./products";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row justify-content-center align-items-center">
+
+
+        {products.map(product => {
+        console.log(product)
+          return (
+              <Componente1 key={product.id} {...product} >
+                <p>Children</p>
+              </Componente1>
+          )
+        })}
+
+      </div>
     </div>
   );
 }
