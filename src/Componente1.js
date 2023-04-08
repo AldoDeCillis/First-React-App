@@ -1,14 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const Componente1 = ({nome, img, description, children}) => {
+const Componente1 = ({name, img, description, children}) => {
+    let [titolo, setTitolo] = useState(name)
+    let cambiaTitolo = () => {
+        setTitolo('REACT MAGIC!')
+        if (titolo === name){
+        }else{
+            setTitolo(name)
+        }
+    }
     return (
         <div className="col-4">
             <div className="card m-3" style={{width:'18rem',}}>
                 <img src={img} className="card-img-top" alt="..." />
                 <div className="card-body d-flex flex-column align-items-center">
-                    <h5 className="card-title">{nome}</h5>
+                    <h5 className="card-title">{titolo}</h5>
                     <p className="card-text">{description}</p>
-                    <button onClick={()=>alert(`bottone premuto ${nome}`)} className="btn  btn-dark" >Scopri ora</button>
+                    <button onClick={cambiaTitolo} className="btn  btn-dark" >Cambia</button>
                     <p>{children}</p>
                 </div>
             </div>
